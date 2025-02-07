@@ -1,0 +1,499 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://kit.fontawesome.com/2713e85d23.js" crossorigin="anonymous"></script>
+
+    <!--
+  <script src="./resources/jsapi" type="text/javascript"></script>
+  <script type="text/javascript" async>google.load("jquery", "1.3.2");</script>
+ -->
+
+    <!-- @font-face {
+font-family: 'Avenir Book';
+src: url("./fonts/Avenir_Book.ttf");
+/* File to be stored at your site */
+} -->
+
+    <style type="text/css">
+        body {
+            font-family: "Avenir Book", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+        }
+
+        h1 {
+            font-weight: 300;
+        }
+
+        h2 {
+            font-weight: 300;
+        }
+
+        p {
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        code {
+            font-size: 0.8rem;
+            margin: 0 0.2rem;
+            padding: 0.5rem 0.8rem;
+            white-space: nowrap;
+            background: #efefef;
+            border: 1px solid #d3d3d3;
+            color: #000000;
+            border-radius: 3px;
+        }
+
+        pre>code {
+            display: block;
+            white-space: pre;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+
+        pre.prettyprint>code {
+            border: none;
+        }
+
+
+
+        .disclaimerbox {
+            background-color: #eee;
+            border: 1px solid #eeeeee;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            padding: 20px;
+        }
+
+        video.header-vid {
+            height: 140px;
+            border: 1px solid black;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+
+        img.header-img {
+            height: 140px;
+            border: 1px solid black;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+        }
+
+        img.rounded {
+            border: 0px solid #eeeeee;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+
+        }
+
+        a:link,
+        a:visited {
+            color: #1367a7;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #208799;
+        }
+
+        td.dl-link {
+            height: 160px;
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .layered-paper-big {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow:
+                0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The top layer shadow */
+                5px 5px 0 0px #fff,
+                /* The second layer */
+                5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The second layer shadow */
+                10px 10px 0 0px #fff,
+                /* The third layer */
+                10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The third layer shadow */
+                15px 15px 0 0px #fff,
+                /* The fourth layer */
+                15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fourth layer shadow */
+                20px 20px 0 0px #fff,
+                /* The fifth layer */
+                20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The fifth layer shadow */
+                25px 25px 0 0px #fff,
+                /* The fifth layer */
+                25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The fifth layer shadow */
+            margin-left: 10px;
+            margin-right: 45px;
+        }
+
+
+        .layered-paper {
+            /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+            box-shadow:
+                0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The top layer shadow */
+                5px 5px 0 0px #fff,
+                /* The second layer */
+                5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+                /* The second layer shadow */
+                10px 10px 0 0px #fff,
+                /* The third layer */
+                10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+            /* The third layer shadow */
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-right: 30px;
+            margin-bottom: 5px;
+        }
+
+        .vert-cent {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .container img {
+            /* border: 1px solid; */
+            height: 70px; /* 设置统一高度 */
+            object-fit: cover; /* 保持图片的宽高比 */
+            margin-right: 10px; /* 图片之间的间隔 */
+        }
+    </style>
+
+    <title>SplitLoRA</title>
+</head>
+
+<body>
+    <center>
+        
+    <center>
+        <span style="font-size:26px">SplitInfer<br>
+            </span><br><br><br>
+    </center>
+    <tbody>
+            <tr>
+                <td align="center" width="200px">
+                    <center>
+                        <br>
+                        <span style="font-size:20px">
+                            <a href=https://github.com/FDU-INC/SplitFM>GitHub</a>
+                        </span>
+                    </center>
+                </td>
+        </tbody>
+    <h2>
+            Abstract
+    </h2>
+    </center>
+    <p>
+        <left>
+            The rapid advancement of large foundation models has opened new avenues for applications in various domains. 
+            However, deploying these models on resource-constrained edge devices poses significant challenges, particularly regarding data privacy and computational efficiency. 
+            To address this issue, the SplitInfer framework has been developed, enabling split inference of large models while maintaining the integrity of sensitive data.
+        
+            SplitInfer leverages the power of cloud computing to facilitate inference without the need to transmit personal data to high-performance servers.
+            This innovative approach not only enhances the security of user information but also optimizes resource utilization by distributing computation tasks between edge devices and cloud infrastructure.
+            
+            Supporting a range of popular foundation models, including GPT-2, Llama3, Qwen2-VL, and DeepSeek-R1, 
+            SplitInfer provides a versatile and efficient solution tailored for edge computing environments. 
+            As an emerging framework in the realm of model inference, SplitInfer lays the groundwork for further research and development aimed at advancing privacy-preserving AI applications.
+        </left>
+    </p>
+
+    <br>
+
+    <hr>
+    <center>
+        <h2> TLDR takeaways </h2>
+    </center>
+
+    <p>
+        <center>
+            <img src="./figures/overview.jpg" width="500px">
+        </center>
+    </p>
+
+    <p><b>SplitInfer</b> contains the following directories:</p>
+    <ul>
+        <li><strong>infer_modelsplit.py:</strong>  A simple demo for split model inference, illustrating how to perform the inference process.</li>
+        <li><strong>modelsplit.py:</strong>  The definition file for the split model, modified to align with the model definition format in the transformers library.</li>
+        <li><strong>utils.py:</strong>  Contains utility functions for loading model parameters and printing model parameter counts, aiding users in model management and debugging.</li>
+    </ul>
+
+    <!-- <p>Our <b>SplitLoRA</b> framework involves the following steps:</p>
+    <ul>
+        <li>
+            Split Fine-Tuning Stage
+            <ol>
+                <li>Client-side Model Forward Propagation</li>
+                <li>Activations Transmissions</li>
+                <li>Server-side Model Forward Propagation and Back-propagation</li>
+                <li>Activations' Gradients Transmissions</li>
+                <li>Client-side Model Back-propagation</li>
+            </ol>
+        </li>
+        <li>
+            Client-side LoRA Adapter Aggregation Stage
+            <ol>
+                <li>Client-side LoRA Adapters Uploading</li>
+                <li>Client-side LoRA Adapter Aggregation</li>
+                <li>Client-side LoRA Adapter Downlink Transmissions</li>
+            </ol>
+        </li>
+    </ul> -->
+
+    <hr>
+    <center>
+        <h2> Supported Models </h2>
+    </center>
+
+    <p> <b>SplitInfer</b> currently supports the following models:</p>
+    <ul>
+        <li>
+            <b>GPT-2:</b> A widely used language model for text generation tasks.
+        </li>
+        <li>
+            <b>Llama3:</b> A high-performance language model optimized for various NLP tasks.
+        </li>
+        <li>
+            <b>Qwen2-VL:</b> A vision-language model capable of handling both text and image inputs.
+        </li>
+        <li>
+            <b>DeepSeek-R1:</b> A state-of-the-art model designed for complex reasoning and generation tasks.
+        </li>
+    </ul>
+
+    <hr>
+    <center>
+        <h2> Key observations </h2>
+    </center>
+
+    <p><b>SplitInfer</b> compare  with several types of foundation models:</p>
+    <!-- <ul>
+        <li>
+            <b>Centralized LoRA (CenLoRA):</b> Client server collects raw data from other participating servers for full model fine-tuning with LoRA adapters.
+        </li>
+        <li>
+            <b>Federated LoRA (FedLoRA):</b> Each participating client server locally fine-tunes the full model and then transmits the updated LoRA adapters to the local aggregation server for adapter aggregation.
+        </li>
+    </ul> -->
+
+    <center>
+        <h3> Performance Evaluation </h3>
+    </center>
+
+    <!-- <p>
+        <b style="color: blue;">1. </b>Perplexity (PPL) performance evaluation, where a lower PPL indicates better predictive performance.
+    </p>
+    <center>
+    <table border="1"> 
+        <tr> 
+            <th><span style="font-size:14px">GPT2-S</span></th> 
+            <th><span style="font-size:14px">GPT2-M</span></th> 
+        </tr> 
+        <tr> 
+            <td><img src= 
+                "./figures/PPL_GPT2-S.jpeg" 
+                width="250"> 
+            </td> 
+            <td><img src= 
+                "./figures/PPL_GPT2-M.jpeg" 
+                width="250">
+            </td> 
+        </tr> 
+    </table>
+    </center>
+
+    <p>
+        <b style="color: blue;">2. </b>Converged accuracy for E2E NLG challenge.
+    </p>
+    <center>
+    <table border="1"> 
+        <tr> 
+            <th><span style="font-size:14px">GPT2-S</span></th> 
+            <th><span style="font-size:14px">GPT2-M</span></th> 
+        </tr> 
+        <tr> 
+            <td><img src= 
+                "./figures/Table-S.png" 
+                width="300"> 
+            </td> 
+            <td><img src= 
+                "./figures/Table-M.png" 
+                width="300">
+            </td> 
+        </tr> 
+    </table>
+    </center>
+
+    <p>
+        <b style="color: blue;">3. </b>Convergence rate.
+    </p>
+    <center>
+    <table border="1"> 
+        <tr> 
+            <th><span style="font-size:14px">GPT2-S</span></th> 
+            <th><span style="font-size:14px">GPT2-M</span></th> 
+        </tr> 
+        <tr> 
+            <td><img src= 
+                "./figures/convergence rate GTP_S.jpeg" 
+                width="250"> 
+            </td> 
+            <td><img src= 
+                "./figures/convergence rate GTP_M.jpeg" 
+                width="250">
+            </td> 
+        </tr> 
+    </table>
+    </center>
+
+    <p>
+        <b style="color: blue;">4. </b>The number of trainable parameters.
+    </p>
+    <center>
+        <table border="1"> 
+            <tr> 
+                <td><img src= 
+                    "./figures/train_para.png"
+                    width="300"> 
+                </td> 
+            </tr> 
+        </table>
+        </center> -->
+
+    <p>
+        <i>For more detailed experimental results, please refer to our paper.</i>
+    </p>
+
+    <center>
+        <h2> Future Direction about <b>SplitInfer</b> </h2>
+    </center>
+    We aim to enhance SplitInfer by focusing on several key areas:
+
+         <ul>
+        <li>
+            <b>Model Expansion:</b> We plan to broaden the range of supported foundation models, allowing users to leverage a wider variety of advanced models tailored for different applications.
+        </li>
+        <li>
+            <b>Task Versatility:</b> Our goal is to incorporate support for additional tasks, enhancing the framework's adaptability in various edge computing scenarios.
+        </li>
+        <li>
+            <b>Performance Optimization:</b> We will investigate and implement strategies to optimize inference speed and resource usage, ensuring efficient operation on resource-constrained devices.
+        </li>
+        <li>
+            <b>User-Friendly Interfaces:</b> We intend to develop more intuitive interfaces and documentation to improve user experience and facilitate easier implementation of SplitInfer in diverse environments.
+        </li>
+        <li>
+            <b>Community Engagement:</b> Encouraging community contributions and feedback will be a priority, as we seek to refine and enhance SplitInfer based on user needs and experiences.
+        </li>
+    </ul>
+
+
+
+
+
+
+<!-- 
+
+    <center> ImageNet100 on MLP-Mixer scales</center>
+    <p>
+        <center>
+            <img class="rounded" src="./assets/mixer_scale.png" width="700px">
+        </center>
+    </p>
+
+    <p>
+        <b style="color: blue;">Observation 5</b>: Even when trained in parallel, LoRA heads maintain orthogonality
+        throughout the training process.
+    </p>
+    <center>
+        <img class="rounded" src="./assets/alignment.png" width="500px">
+    </center>
+    </p>
+    <br>
+    <hr>
+    <center>
+        <h2> Conclusion, limitations, and implications </h2>
+    </center>
+    <p>Our results suggest LTE is a competitive parameter-efficient framework for distributed training. We highlight
+        several directions for further exploration:</p>
+    <ul>
+        <li>Improving convergence speed by integrating methods from federated learning and model averaging.</li>
+        <li>Creating adaptive mechanisms for determining the necessary number of ranks or heads.</li>
+        <li>Examining the feasibility of heterogeneous parameterization for LoRA, allowing each adapter to operate at a
+            distinct rank.</li>
+        <li>Investigating strategies for integrating multi-level optimization (optimizer at both local- and meta-level)
+        </li>
+    </ul>
+    <p>Our initial findings validate the potential of low-rank adapters in neural network training, marking a
+        significant step forward. However, further testing on larger models is essential to test the scalability of our
+        approach.
+        We believe our method opens up and contributes to many avenues:</p>
+    <ul>
+        <li><b>Collective Intelligence:</b> Distributed learning can lead to more efficient and scalable knowledge
+            acquisition.</li>
+        <li><b>Personalized Learning:</b> Each LoRA can serve as a localized learning, tailoring models to individual
+            user preferences. These preferences can be shared or used to update the base model. </li>
+        <li><b>User Safety and Privacy:</b> Localized training ensures user's data safety and privacy, as weight updates
+            are the main communication medium.</li>
+        <li><b>Computational Efficiency:</b> Pre-training models in environments with limited computational resources or
+            slow interconnect speeds.</li>
+    </ul>
+    <p>Through addressing these open questions, we hope to envision a collaborative ecosystem embodying the concept of
+        the "wisdom of the crowd." </p>
+
+    <br> -->
+
+    <hr>
+    <h3 style="margin-top: -1.6em;text-align:left"></h3>
+
+    <br><br>
+ 
+
+
+
+
+
+    <!-- <hr>
+    <center>
+        <h2> Acknowledgements </h2>
+    </center>
+    <p> JH was supported by the ONR MURI grant N00014-22-1-2740 and the MIT-IBM Watson AI Lab.
+        JB was funded by the MIT-IBM Watson AI Lab and the Packard Fellowship.
+        PI was funded by the Packard Fellowship.
+        BC was funded by the NSF STC award CCF-1231216.
+        We thank Han Guo, Lucy Chai, Wei-Chiu Ma, Eunice Lee, Dave Epstein, and Yen-Chen Lin for their feedback and
+        emotional support on the project. </p>
+    <br><br> -->
+
+
+
+</body>
+
+</html>
