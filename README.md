@@ -1,1 +1,1 @@
-# splitinfer
+# SplitInfer
